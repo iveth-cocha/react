@@ -8,6 +8,9 @@ import { useState } from 'react'
 
 function App() {
   const [darkMode, setdarkMode] = useState(false)
+
+  const [estado, setEstado] = useState(false)
+  
   return (
     <div className={darkMode ? "dark" :""}>
 
@@ -29,7 +32,7 @@ function App() {
             <hr className="w-80 border border-gray-400" />
           </div>
           <div className='mt-10'>
-            <Formulario/>
+            <Formulario setEstado={setEstado}/>
           </div>
         </div>
         
@@ -42,7 +45,7 @@ function App() {
             <hr className="w-80 border border-gray-400" />
           </div>
           <div className='mt-10 h-[675px] overflow-y-auto'>
-            <Listar/>
+            <Listar estado={estado} /*setEstado={setEstado} darkMode={darkMode}*//>
           </div>
         </div>
       </main>
@@ -51,5 +54,6 @@ function App() {
     </div>
   )
 }
+
 
 export default App

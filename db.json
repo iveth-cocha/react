@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "metro": [
+    {
+      "id": "64f8fce7-7f70-445f-bbf0-d7b0ee645227",
+      "nombre": "ruta5",
+      "sector": "cotocollao",
+      "salida": "cotocollao",
+      "llegada": "lamena",
+      "maquinista": "marcelo",
+      "detalles": "aadd"
+    },
+    {
+      "id": "a77bd1dd-cdb1-434f-acfb-545a8a705f5e",
+      "nombre": "ruta5",
+      "sector": "cotocollao",
+      "salida": "cotocollao",
+      "llegada": "lamena",
+      "maquinista": "marcelo",
+      "detalles": "lk"
+    }
+  ]
+}
