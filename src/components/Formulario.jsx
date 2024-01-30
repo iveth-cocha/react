@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Mensajes from "./Mensajes"
 import { v4 as uuidv4 } from 'uuid';
 
 
 
-export const Formulario = ({setEstado}) => {
+export const Formulario = ({setEstado,idMetro}) => {
     const [error, setError] = useState(false) 
 
     const [mensaje, setMensaje] = useState(false)
@@ -37,7 +37,22 @@ export const Formulario = ({setEstado}) => {
             return
         }
         try {
-            const url ="http://localhost:3000/metro"
+            if(form.id){
+                const url = `https://65b81bd346324d531d55f5fe.mockapi.io/metro/${form.id}`
+                await fetch(url,{
+                    method:'PUT',
+                    body:JSON.stringify(form),
+                    headers:{'Content-Type':'application/json'}
+                })
+                setEstado(true)
+                setform({})
+								setTimeout(() => {
+	                    setEstado(false)
+                    setform({})
+                }, 1000)
+            }
+            else{
+            const url ="https://65b81bd346324d531d55f5fe.mockapi.io/metro"
 			form.id = uuidv4()
             await fetch(url,{
                 method:'POST', //accion
@@ -51,11 +66,39 @@ export const Formulario = ({setEstado}) => {
 				setEstado(false)
                 setform({})
             }, 1000);
+        }
         } catch (error) {
             console.log(error);
         }
 
     }
+
+    useEffect(() => {
+        if(idMetro)
+        {
+            (async function (idMetro) {
+                try {
+                    const respuesta = await (await fetch(`https://65b81bd346324d531d55f5fe.mockapi.io/metro/${idMetro}`)).json()
+                    const {id,nombre,sector,salida,llegada,maquinista,detalles} = respuesta
+                    setform({
+                        ...form,
+                        nombre,
+                        sector,
+                        salida,
+                        llegada,
+                        maquinista,
+                        detalles,
+                                                id
+                    })
+                }
+                catch (error) {
+                    console.log(error);
+                }
+            })(idMetro)
+        }
+    }, [idMetro])
+
+
 
 
 
@@ -156,9 +199,10 @@ export const Formulario = ({setEstado}) => {
             <input
                 type="submit"
                 className='bg-sky-900 w-full p-3 
-        text-white uppercase font-bold rounded-lg 
-        hover:bg-red-900 cursor-pointer transition-all'
-                value='Registrar ruta' />
+                text-white uppercase font-bold rounded-lg 
+                hover:bg-red-900 cursor-pointer transition-all'
+                value={form.id ? "Actualizar ruta" : "Registrar ruta"} 
+            />
 
         </form>
     )

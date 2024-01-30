@@ -34,6 +34,24 @@
       "llegada": "lamena",
       "maquinista": "marcelo",
       "detalles": "lk"
+    },
+    {
+      "id": "6df8582c-49f2-4e46-8404-a8f70d9289c2",
+      "nombre": "ruta6",
+      "sector": "mena",
+      "salida": "laloma",
+      "llegada": "mena",
+      "maquinista": "marcos",
+      "detalles": "nn"
+    },
+    {
+      "id": "00dcdbc3-1c7a-4759-bad1-b11aaeb7baab",
+      "nombre": "ruta5",
+      "sector": "cotocollao",
+      "salida": "cotocollao",
+      "llegada": "lamena",
+      "maquinista": "marcelo",
+      "detalles": "oooooooooooooooooooooooooo"
     }
   ]
 }
