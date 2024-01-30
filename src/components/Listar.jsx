@@ -5,6 +5,7 @@ import Mensajes from './Mensajes'
 
 
 const Listar = ({estado,setIdmetro}) => {
+
   const [rutas, setRutas] = useState([]) 
   
   useEffect(() => {
@@ -16,6 +17,7 @@ const Listar = ({estado,setIdmetro}) => {
             try {
                 const respuesta = await (await fetch("https://65b81bd346324d531d55f5fe.mockapi.io/metro")).json()
                 setRutas(respuesta)
+                //setIdmetro(0)
                 console.log("petición");
             }
             catch (error) {

@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 
-export const Formulario = ({setEstado,idMetro}) => {
+export const Formulario = ({setEstado,idMetro,setIdmetro}) => {
     const [error, setError] = useState(false) 
 
     const [mensaje, setMensaje] = useState(false)
@@ -46,6 +46,7 @@ export const Formulario = ({setEstado,idMetro}) => {
                 })
                 setEstado(true)
                 setform({})
+                setIdmetro(0)//cambair el valor del ID
 								setTimeout(() => {
 	                    setEstado(false)
                     setform({})
@@ -88,7 +89,7 @@ export const Formulario = ({setEstado,idMetro}) => {
                         llegada,
                         maquinista,
                         detalles,
-                                                id
+                        id
                     })
                 }
                 catch (error) {
